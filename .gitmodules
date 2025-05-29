@@ -1,6 +1,6 @@
 [submodule "nepali_crowdfund_web"]
 	path = nepali_crowdfund_web
-	url = ./nepali_crowdfund_web
+	url = https://github.com/bmlpariyar/nepali_crowdfund_web.git
 [submodule "nepali_crowdfund_api"]
 	path = nepali_crowdfund_api
-	url = ./nepali_crowdfund_api
+	url = https://github.com/bmlpariyar/nepali_crowdfund_api.git
