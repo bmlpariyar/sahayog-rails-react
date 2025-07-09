@@ -1,0 +1,40 @@
+# docker-compose.yml
+version: "3.9"
+
+services:
+  backend:
+    build:
+      context: ./nepali_crowdfund_api
+    volumes:
+      - ./nepali_crowdfund_api:/app
+    ports:
+      - "3000:3000"
+    depends_on:
+      - db
+    environment:
+      POSTGRES_USERNAME: bimal
+      POSTGRES_PASSWORD: bimal123
+
+  frontend:
+    build:
+      context: ./nepali_crowdfund_web
+    volumes:
+      - ./nepali_crowdfund_web:/app
+    ports:
+      - "8000:8000"
+    depends_on:
+      - backend
+
+  db:
+    image: postgres:17
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    environment:
+      POSTGRES_DB: nepali_crowdfund_api
+      POSTGRES_USER: bimal            
+      POSTGRES_PASSWORD: bimal123     
+    ports:
+      - "5434:5432"    
+
+volumes:
+  pgdata:
